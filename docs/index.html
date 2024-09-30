@@ -355,14 +355,71 @@
           </ul>
         </div>
         <p align="center">
-        <img src="./static/images/ablation_reference.png" class="center" width="75%">
+        <img src="./static/images/ablation_reference.png" class="center" width="50%">
         </p>
         <div class="content has-text-justified">
           <ul>
           <li><strong>Ablation study on the number of reference examples:</strong></li>
             <ul>
-              <li> As shown in the Figure, a clear trend emerges: as the number of reference examples increases, all three correlation metrics improve significantly.</li>
+              <li>As shown in the Figure, a clear trend emerges: as the number of reference examples increases, all three correlation metrics improve significantly.</li>
               <li>Notably, when evaluating new model responses in our benchmark, we provide all three reference examples, which could potentially lead to even higher correlations.</li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section"></section>
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">Law of the Weakest Link in LLMs</h2>
+        <p align="center">
+        <img src="./static/images/result.png" class="center" width="100%">
+        </p>
+        <div class="content has-text-justified">
+          The full results of 17 LLMs from 5 model families are provided in the Table. Our experiments reveal several key findings:<br><br>
+          <ul>
+          <li><strong>CrossEval effectively differentiates advanced models:</strong>
+            <ul>
+            <li><strong>The CrossEval benchmark successfully distinguishes between state-of-the-art LLMs.</li>
+            <li><strong>For instance, the four Claude model variants achieve progressively higher scores in reasoning: 56.81, 62.88, 66.22, and 71.54.</li>
+            </ul>
+          </li>
+          <li><strong>LLMs exhibit a "Law of the Weakest Link" effect in cross capabilities:</strong>
+            <ul>
+            <li>In cross-capability evaluations, we define one of the involved individual capabilities as stronger and the other as weaker if the absolute score difference between them exceeds 3 points.</li>
+            <li>In 58 cross-capability scenarios where this difference is present, 38 cases show performance lower than both individual capabilities (red background), and 20 show performance between the two but closer to the weaker capability (blue background).</li>
+            <li>Notably, no cross-capability score ever comes close to or exceeds the stronger individual capability.</li>
+            </ul>
+          </li>
+          <li><strong>Tool Use is currently the most challenging capability for LLMs:</strong>
+            <ul>
+            <li>Our prompt set includes tasks involving web browsing and code interpretation, and Llama 3.1 is the only model family that currently supports both.</li>
+            <li>However, these scores for <i>Tool Use</i> capability are significantly lower than those for other capabilities, indicating a critical area for improvement.</li>
+            </ul>
+          </li>
+          <li><strong>LLMs underperform in cross-capability tasks:</strong>
+            <ul>
+            <li>Despite our efforts to maintain a consistent difficulty level across both individual and cross-capability tasks, LLMs generally perform worse on tasks requiring multiple capabilities.</li>
+            <li>Across all models, the average score for individual capabilities is 65.72, compared to 58.67 for cross capabilities, revealing a significant performance gap.</li>
+            </ul>
+          </li>
+          </ul>
+        </div>
+        <p align="center">
+        <img src="./static/images/distribution.png" class="center" width="75%">
+        </p>
+        <div class="content has-text-justified">
+          <ul>
+          <li><strong>"Law of the Weakest Link" effect is evaluator-agnostic:</strong></li>
+            <ul>
+              <li>"Law of the Weakest Link" holds true regardless of the evaluator used. With GPT-4o, the density peaks slightly below the weaker capability, while Claude 3.5 Sonnet shows a slight peak above it. However, in both cases, performance clusters closely around the weaker capability.</li>
+              <li>"Law of the Weakest Link" effect suggests that deficiencies in an individual capability can substantially limit performance across any cross-capability tasks involving that capability.</li>
+              <li>CrossEval benchmark provides a foundation for identifying LLM weaknesses, but further research is needed to more comprehensively diagnose and address these deficiencies without compromising other capabilities.</li>
             </ul>
           </ul>
         </div>
