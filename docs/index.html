@@ -235,8 +235,8 @@
           <ul>
             <li><strong>Examples:</strong>
               <ul>
-              <li>Consider a user prompt asking, <i>"Which direction has the total rainfall in Tokyo, Japan been trending over the past 10 years?"</i> Such a task requires the integration of tool use (web browsing) with analytical reasoning.</li>
-              <li>When a developer provides HTML and JavaScript code and asks, <i>"Give me a basic understanding of what this web app does,"</i> the model must combine long-context comprehension with coding expertise.</li>
+              <li>Consider a user prompt asking, <i>“Which direction has the total rainfall in Tokyo, Japan been trending over the past 10 years?”</i> Such a task requires the integration of tool use (web browsing) with analytical reasoning.</li>
+              <li>When a developer provides HTML and JavaScript code and asks, <i>“Give me a basic understanding of what this web app does,”</i> the model must combine long-context comprehension with coding expertise.</li>
               </ul>
             </li>
             <li><strong>Definition:</strong>
@@ -387,7 +387,7 @@
             <li>For instance, the four Claude model variants achieve progressively higher scores in the <i>Reasoning</i> capability: 56.81, 62.88, 66.22, and 71.54.</li>
             </ul>
           </li>
-          <li><strong>LLMs exhibit a "Law of the Weakest Link" effect in cross capabilities:</strong>
+          <li><strong>LLMs exhibit a “Law of the Weakest Link” effect in cross capabilities:</strong>
             <ul>
             <li>In cross-capability evaluations, we define one of the involved individual capabilities as stronger and the other as weaker if the absolute score difference between them exceeds 3 points.</li>
             <li>In 58 cross-capability scenarios where this difference is present, 38 cases show performance lower than both individual capabilities (red background), and 20 show performance between the two but closer to the weaker capability (blue background).</li>
@@ -413,10 +413,10 @@
         </p>
         <div class="content has-text-justified">
           <ul>
-          <li><strong>"Law of the Weakest Link" effect is evaluator-agnostic:</strong></li>
+          <li><strong>“Law of the Weakest Link” effect is evaluator-agnostic:</strong></li>
             <ul>
-              <li>"Law of the Weakest Link" holds true regardless of the evaluator used. With GPT-4o, the density peaks slightly below the weaker capability, while Claude 3.5 Sonnet shows a slight peak above it. However, in both cases, performance clusters closely around the weaker capability.</li>
-              <li>"Law of the Weakest Link" effect suggests that deficiencies in an individual capability can substantially limit performance across any cross-capability tasks involving that capability.</li>
+              <li>“Law of the Weakest Link” holds true regardless of the evaluator used. With GPT-4o, the density peaks slightly below the weaker capability, while Claude 3.5 Sonnet shows a slight peak above it. However, in both cases, performance clusters closely around the weaker capability.</li>
+              <li>“Law of the Weakest Link” effect suggests that deficiencies in an individual capability can substantially limit performance across any cross-capability tasks involving that capability.</li>
               <li>CrossEval benchmark provides a foundation for identifying LLM weaknesses, but further research is needed to more comprehensively diagnose and address these deficiencies without compromising other capabilities.</li>
             </ul>
           </ul>
@@ -446,11 +446,11 @@
           <li><strong>Investigating the impact of individual-capability alterations</strong>:</li>
             <ul>
             <li>Principle-based system prompting is particularly effective in enhancing weaker capabilities.</li>
-            <li>"Law of the Weakest Link" effect persists after individual-capability alterations.</li>
+            <li>“Law of the Weakest Link” effect persists after individual-capability alterations.</li>
               <ul>
               <li>Altering the weaker capability in a cross-capability scenario has a significant effect on overall performance, while changes to the stronger capability result in only minor adjustments.</li>
               <li>In 10 out of the 18 cross-capability scores examined across the two models, we observe one individual capability improving while the other declines. Notably, in 90% of these cases, changes in cross-capability performance closely follow the trends of the weaker capability.</li>
-              <li>Therefore, our case study also confirms that performance shifts in individual capabilities continue to conform to the "Law of the Weakest Link" effect.</li>
+              <li>Therefore, our case study also confirms that performance shifts in individual capabilities continue to conform to the “Law of the Weakest Link” effect.</li>
               </ul>
             </ul>
           </ul>
