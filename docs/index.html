@@ -218,8 +218,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
-          The development and evaluation of LLMs have primarily focused on individual capabilities. Typically, developers construct specialized datasets tailored to distinct abilities, and then train models by blending these data sources. However, this overlooks the intersection of multiple capabilities across different types of expertise that are often required for real-world tasks, which we term <strong>cross capabilities</strong>.
-          <br><br>We will systematically explore this concept of cross capabilities in LLMs step by step.
+          The development and evaluation of Large Language Models (LLMs) have primarily focused on individual capabilities. Typically, developers construct specialized datasets tailored to distinct abilities, and then train models by blending these data sources. However, this overlooks the intersection of multiple capabilities across different types of expertise that are often required for real-world tasks, which we term <strong>cross capabilities</strong>.
+          <br><br>In this project, we systematically explore this concept of cross capabilities in LLMs step by step.
         </div>  
     </div>
   </div>
@@ -231,25 +231,17 @@
     <div class="columns is-centered">
       <div class="column has-text-centered">
         <h2 class="title is-3">What is Cross Capability?</h2>
-        <p align="center">
-        <img src="./static/images/paradigm.png" class="center">
-        </p>
         <div class="content has-text-justified">
           <ul>
-            <li><strong>Examples and Definition:</strong>
+            <li><strong>Examples:</strong>
               <ul>
-              <li>Consider a user prompt asking, <i>Which direction has the total rainfall in Tokyo, Japan been trending over the past 10 years? Explain it step by step.</i> Such a task requires the integration of tool use (web browsing) with analytical reasoning. Similarly, when a developer provides HTML and JavaScript for an API-driven application and asks, <i>Give me a basic understanding of what this web app does,</i> the model must combine long-context comprehension with coding expertise.</li>
-              <li>We define these scenarios as <strong>cross capabilities</strong>---the intersection of multiple distinct capabilities across different types of expertise necessary to address complex, real-world tasks.</li>
+              <li>Consider a user prompt asking, <i>"Which direction has the total rainfall in Tokyo, Japan been trending over the past 10 years?"</i> Such a task requires the integration of tool use (web browsing) with analytical reasoning.</li>
+              <li>Similarly, when a developer provides HTML and JavaScript for an API-driven application and asks, <i>"Give me a basic understanding of what this web app does,"</i> the model must combine long-context comprehension with coding expertise.</li>
               </ul>
             </li>
-            <li><strong>Online Distillation:</strong>
+            <li><strong>Definition:</strong>
               <ul>
-              <li>Generating a distilled dataset that encapsulates the knowledge of the teacher model to fine-tune the student model.</li>
-              </ul>
-            </li>
-            <li><strong>Parametric Knowledege Transfer:</strong>
-              <ul>
-              <li>Extracting knowledge-specific parameters from the vanilla teacher model and injecting them into the student model.</li>
+              <li>We define these scenarios as <strong>cross capabilities</strong>——the intersection of multiple distinct capabilities across different types of expertise necessary to address complex, real-world tasks.</li>
               </ul>
             </li>
           </ul>
@@ -264,23 +256,38 @@
     <!-- Results. -->
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h2 class="title is-3">Parametric Knowledege Transfer</h2>
+        <h2 class="title is-3">Taxonomy for Individual and Cross Capabilities</h2>
         <p align="center">
-        <img src="./static/images/method.png" class="center">
+        <img src="./static/images/taxonomy.png" class="center">
         </p>
         <div class="content has-text-justified">
           <ul>
-            <li><strong>Knowledge Extraction from Teacher Model:</strong>
+            We start by identifying seven core individual capabilities of LLMs and then pair them to form seven common cross capabilities, each supported by a manually constructed taxonomy.
+            <li><strong>Individual Capabilities:</strong>
               <ul>
-              <li>Calculating sensitivity score for each parameter using seed samples.</li>
-              <li>Given that models of varying scales often differ in both the number of layers and their dimensions, we adopt a method of layer selection and dimensionality reduction based on sensitivity scores.</li> 
+              <li><i>English</i></li>
+              <li><i>Reasoning</i></li>
+              <li><i>Coding</i></li>
+              <li><i>Image Recognition</i></li>
+              <li><i>Tool Use</i></li>
+              <li><i>Long Context</i></li>
+              <li><i>Spanish</i></li>
               </ul>
             </li>
-            <li><strong>Knowledge Injection with LoRA:</strong>
+            <li><strong>Cross Capabilities:</strong>
               <ul>
-              <li>Using LoRA module as a bridge for knowledge transfer.</li>
-              <li>Leveraging parameters extracted from the teacher model to initialize the LoRA module of the student model.</li>
+              <li><i>Coding & Reasoning</i></li>
+              <li><i>Image Recognition & Reasoning</i></li>
+              <li><i>Tool Use & Coding</i></li>
+              <li><i>Tool Use & Reasoning</i></li>
+              <li><i>Long Context & Coding</i></li>
+              <li><i>Spanish & Reasoning</i></li>
+              <li><i>Spanish & Image Recognition</i></li>
               </ul>
+            </li>
+            <li><strong>Taxonomy:</strong>
+              <li>As illustrated in the Figure, these taxonomies follow a hierarchical design: the root node represents either an individual or cross capability, with the next two layers (Level-1 and Level-2 categories) breaking these down into increasingly specific tasks.</li>
+              <li>This framework clearly distinguishes between tasks that rely on an individual capability and those that demand the integration of multiple abilities, allowing for a comprehensive evaluation of LLMs across various scenarios.</li>
             </li>
           </ul>
         </div>
