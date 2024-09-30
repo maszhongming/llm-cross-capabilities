@@ -261,36 +261,36 @@
         <img src="./static/images/taxonomy.png" class="center">
         </p>
         <div class="content has-text-justified">
+          We start by identifying seven core individual capabilities of LLMs and then pair them to form seven common cross capabilities, each supported by a manually constructed taxonomy.<br><br>
           <ul>
-            We start by identifying seven core individual capabilities of LLMs and then pair them to form seven common cross capabilities, each supported by a manually constructed taxonomy.<br><br>
-            <li><strong>Individual Capabilities:</strong>
-              <ul>
-              <li><i>English</i></li>
-              <li><i>Reasoning</i></li>
-              <li><i>Coding</i></li>
-              <li><i>Image Recognition</i></li>
-              <li><i>Tool Use</i></li>
-              <li><i>Long Context</i></li>
-              <li><i>Spanish</i></li>
-              </ul>
-            </li>
-            <li><strong>Cross Capabilities:</strong>
-              <ul>
-              <li><i>Coding & Reasoning</i></li>
-              <li><i>Image Recognition & Reasoning</i></li>
-              <li><i>Tool Use & Coding</i></li>
-              <li><i>Tool Use & Reasoning</i></li>
-              <li><i>Long Context & Coding</i></li>
-              <li><i>Spanish & Reasoning</i></li>
-              <li><i>Spanish & Image Recognition</i></li>
-              </ul>
-            </li>
-            <li><strong>Taxonomy:</strong>
-              <ul>
-              <li>As illustrated in the Figure, these taxonomies follow a hierarchical design: the root node represents either an individual or cross capability, with the next two layers (Level-1 and Level-2 categories) breaking these down into increasingly specific tasks.</li>
-              <li>This framework clearly distinguishes between tasks that rely on an individual capability and those that demand the integration of multiple abilities, allowing for a comprehensive evaluation of LLMs across various scenarios.</li>
-              </li>
-              </ul>
+          <li><strong>Individual Capabilities:</strong>
+            <ul>
+            <li><i>English</i></li>
+            <li><i>Reasoning</i></li>
+            <li><i>Coding</i></li>
+            <li><i>Image Recognition</i></li>
+            <li><i>Tool Use</i></li>
+            <li><i>Long Context</i></li>
+            <li><i>Spanish</i></li>
+            </ul>
+          </li>
+          <li><strong>Cross Capabilities:</strong>
+            <ul>
+            <li><i>Coding & Reasoning</i></li>
+            <li><i>Image Recognition & Reasoning</i></li>
+            <li><i>Tool Use & Coding</i></li>
+            <li><i>Tool Use & Reasoning</i></li>
+            <li><i>Long Context & Coding</i></li>
+            <li><i>Spanish & Reasoning</i></li>
+            <li><i>Spanish & Image Recognition</i></li>
+            </ul>
+          </li>
+          <li><strong>Taxonomy:</strong>
+            <ul>
+            <li>As illustrated in the Figure, these taxonomies follow a hierarchical design: the root node represents either an individual or cross capability, with the next two layers (Level-1 and Level-2 categories) breaking these down into increasingly specific tasks.</li>
+            <li>This framework clearly distinguishes between tasks that rely on an individual capability and those that demand the integration of multiple abilities, allowing for a comprehensive evaluation of LLMs across various scenarios.</li>
+            </ul>
+          </li>
           </ul>
         </div>
       </div>
@@ -308,18 +308,16 @@
         <img src="./static/images/crosseval.png" class="center" width="75%">
         </p>
         <div class="content has-text-justified">
+          To benchmark the cross capabilities of LLMs, we introduce the CrossEval benchmark, which includes:<br><br>
           <ul>
-            <li>To benchmark the cross capabilities of LLMs, we introduce the CrossEval benchmark, which includes:</li>
+          <li><strong>Prompts</strong>: 1,400 expert-annotated prompts, with 100 prompts per capability</li>
+          <li><strong>Category</strong>: each prompt categorized by level 1 and 2 based on the taxonomy</li>
+          <li><strong>Difficulty Level</strong>: 10% easy, 30% medium and 60% hard for each capability</li>
+          <li><strong>Reference Examples</strong>:</li>
             <ul>
-            <li><strong>Prompts</strong>: 1,400 expert-annotated prompts, with 100 prompts per capability</li>
-            <li><strong>Category</strong>: each prompt categorized by level 1 and 2 based on the taxonomy</li>
-            <li><strong>Difficulty Level</strong>: 10% easy, 30% medium and 60% hard for each capability</li>
-            <li><strong>Reference Examples</strong>:</li>
-            <ul>
-              <li>Responses: 3 model responses per prompt</li>
-              <li>Expert reviews: 2 human ratings with explanations per model response</li>
-              <li>A total of 4,200 model responses and 8,400 expert reviews</li>
-            </ul>
+            <li>Responses: 3 model responses per prompt</li>
+            <li>Expert reviews: 2 human ratings with explanations per model response</li>
+            <li>A total of 4,200 model responses and 8,400 expert reviews</li>
             </ul>
           </ul>
         </div>
@@ -428,14 +426,49 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-3">How Individual-Capability Alterations Impact Cross-Capability Performance?</h2>
+        <p align="center">
+        <img src="./static/images/principle.png" class="center" width="80%">
+        </p>
+        <div class="content has-text-justified">
+          Beyond evaluating the relationship between individual and cross capabilities of LLMs on CrossEval, we explore the crucial follow-up questions: when we adjust the performance of specific capabilities, how does this affect cross-capability performance?<br><br>
+          <ul>
+          <li><strong>Principle-based System Prompting</strong>:</li>
+            <ul>
+            <li>To reliably explore the impact of altering individual capabilities, we aim to enhance a specific capability without significantly affecting others.</li>
+            <li>Our solution is a principle-based method that iteratively refines the system prompt to enhance the specific capabilities of LLMs.</li>
+            </ul>
+          </ul>
+          <li><strong>Case study to investigate the impact of individual-capability alterations</strong>:</li>
+            <ul>
+            <li>Principle-based system prompting is particularly effective in enhancing weaker capabilities.</li>
+            <li>"Law of the Weakest Link" effect persists after individual-capability alterations.</li>
+              <ul>
+              <li>Altering the weaker capability in a cross-capability scenario has a significant effect on overall performance, while changes to the stronger capability result in only minor adjustments.</li>
+              <li>In 10 out of the 18 cross-capability scores examined across the two models, we observe one individual capability improving while the other declines. Notably, in 90% of these cases, changes in cross-capability performance closely follow the trends of the weaker capability.</li>
+              <li>Therefore, our case study also confirms that performance shifts in individual capabilities continue to conform to the "Law of the Weakest Link" effect.</li>
+              </ul>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{zhong2023seeking,
-      title={Seeking Neural Nuggets: Knowledge Transfer in Large Language Models from a Parametric Perspective},
-      author={Zhong, Ming and An, Chenxin and Chen, Weizhu and Han, Jiawei and He, Pengcheng},
-      journal={arXiv preprint arXiv:2310.11451},
-      year={2023}
+    <pre><code>@article{zhong2024law,
+      title={Law of the Weakest Link: Cross Capabilities of Large Language Models},
+      author={Zhong, Ming and Zhang, Aston and Wang, Xuewei and Hou, Rui and Xiong, Wenhan and Zhu, Chenguang and Chen, Zhengxing and Tan, Liang and Bi, Chloe and Lewis, Mike and Popuri, Sravya and Narang, Sharan and Kambadur, Melanie and Mahajan, Dhruv and Edunov, Sergey and Han, Jiawei and van der Maaten, Laurens},
+      journal={arXiv preprint arXiv:},
+      year={2024}
 }</code></pre>
   </div>
 </section>
