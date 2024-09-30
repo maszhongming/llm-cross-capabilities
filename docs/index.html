@@ -262,7 +262,7 @@
         </p>
         <div class="content has-text-justified">
           <ul>
-            We start by identifying seven core individual capabilities of LLMs and then pair them to form seven common cross capabilities, each supported by a manually constructed taxonomy.<br>
+            We start by identifying seven core individual capabilities of LLMs and then pair them to form seven common cross capabilities, each supported by a manually constructed taxonomy.<br><br>
             <li><strong>Individual Capabilities:</strong>
               <ul>
               <li><i>English</i></li>
@@ -303,13 +303,24 @@
     <!-- Results. -->
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h2 class="title is-3">Experimental Results</h2>
+        <h2 class="title is-3">CrossEval: Benchmarking LLM Cross Capabilities</h2>
         <p align="center">
-        <img src="./static/images/results.png" class="center" width="100%">
+        <img src="./static/images/crosseval.png" class="center" width="100%">
         </p>
         <div class="content has-text-justified">
           <ul>
-            <li>Student models augmented with parametric knowledge from their respective teacher models exhibit substantial improvements.</li>
+            <li>To benchmark the cross capabilities of LLMs, we introduce the CrossEval benchmark, which includes:</li>
+            <ul>
+            <li>Prompts: 1,400 expert-annotated prompts, with 100 prompts per capability</li>
+            <li>Category: each prompt categorized by level 1 and 2 based on the taxonomy</li>
+            <li>Difficulty: 10% easy, 30% medium and 60% hard for each capability</li>
+            <li>Reference Examples:</li>
+            <ul>
+              <li>Responses: 3 model responses per prompt</li>
+              <li>Expert reviews: 2 human ratings with explanations per model response</li>
+              <li>A total of 4,200 model responses and 8,400 expert reviews</li>
+            </ul>
+            </ul>
           </ul>
         </div>
         <p align="center">
