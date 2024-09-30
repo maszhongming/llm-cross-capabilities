@@ -236,7 +236,7 @@
             <li><strong>Examples:</strong>
               <ul>
               <li>Consider a user prompt asking, <i>"Which direction has the total rainfall in Tokyo, Japan been trending over the past 10 years?"</i> Such a task requires the integration of tool use (web browsing) with analytical reasoning.</li>
-              <li>When a developer provides HTML and JavaScript for an API-driven application and asks, <i>"Give me a basic understanding of what this web app does,"</i> the model must combine long-context comprehension with coding expertise.</li>
+              <li>When a developer provides HTML and JavaScript code and asks, <i>"Give me a basic understanding of what this web app does,"</i> the model must combine long-context comprehension with coding expertise.</li>
               </ul>
             </li>
             <li><strong>Definition:</strong>
@@ -305,7 +305,7 @@
       <div class="column has-text-centered">
         <h2 class="title is-3">CrossEval: Benchmarking LLM Cross Capabilities</h2>
         <p align="center">
-        <img src="./static/images/crosseval.png" class="center" width="60%">
+        <img src="./static/images/crosseval.png" class="center" width="75%">
         </p>
         <div class="content has-text-justified">
           <ul>
@@ -323,15 +323,6 @@
             </ul>
           </ul>
         </div>
-        <p align="center">
-          <img src="./static/images/transfer.png" class="center">
-        </p>
-        <div class="content has-text-justified">
-          <ul>
-            <li>When parameters are extracted from a concrete task, the performance is most significantly amplified for that same task.</li>
-            <li>This highlights the capability of our sensitivity-driven techniques to efficiently target certain types of knowledge, rather than just extracting generalized knowledge.</li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -342,28 +333,37 @@
     <!-- Results. -->
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h2 class="title is-3">Analysis</h2>
+        <h2 class="title is-3">Building LLM-based Evaluators</h2>
         <p align="center">
-        <img src="./static/images/analysis.png" class="center">
+        <img src="./static/images/correlation.png" class="center" width="100%">
+        </p>
+        <div class="content has-text-justified">
+          CrossEval is the largest meta-evaluation benchmark for measuring the correlation between LLM-based scoring and human judgments. With each prompt including 3 reference model responses and 6 human ratings, we can explore how to develop the most effective in-domain LLM evaluator for this benchmark.
+          <ul>
+          <li><strong>Prompting LLMs for Evaluation:</strong>
+            <ul>
+            <li><strong>Multi-reference-based prompting:</strong> When using LLM-as-a-Judge, up to two reference responses, along with their ratings and explanations, are provided as context. For instance, when evaluating the first response, the LLM can be given the other responses with their four ratings.</li>
+            <li><strong>Point-deduction-based prompting:</strong> LLM-as-a-Judge paradigm tends to favor longer, more structured responses, which leads to inflated evaluation scores. To address this, instead of assigning scores directly, LLMs are instrusted to summarize issues in both reference examples and the response under evaluation, specifying point deductions.
+            </ul>
+          </li>
+          <li><strong>Correlations between LLM ratings and human judgments:</strong>
+            <ul>
+            <li>Each LLM shows particular strengths in evaluating different capabilities.</li>
+            <li>With our reference examples and prompting methods, LLM evaluators achieve a Pearson correlation of nearly 0.7 with expert annotators' judgments on CrossEval.</li>
+            </ul>
+          </li>
+          </ul>
+        </div>
+        <p align="center">
+        <img src="./static/images/ablation_reference.png" class="center" width="100%">
         </p>
         <div class="content has-text-justified">
           <ul>
-            <li><strong>Layer Selection Methods:</strong>
-              <ul>
-              <li>while the layer selection modestly affects student performance, our sensitivity-driven approach excels over the other strategies.</li> 
-              </ul>
-            </li>
-            <li><strong>Origin of Extracted Parameters:</strong>
-              <ul>
-              <li>FFN showcases advanced transfer capabilities, intimating that it houses a significant share of the teacher’s knowledge.</li>
-              <li>Optimal results are obtained when transferring knowledge from all available modules.</li>
-              </ul>
-            </li>
-            <li><strong>Structure of Extracted Parameters:</strong>
-              <ul>
-              <li>Maintaining the teacher model’s parameter structure significantly benefits student model performance.</li>
-              </ul>
-            </li>
+          <li><strong>Ablation study on the number of reference examples:</strong></li>
+            <ul>
+              <li> As shown in the Figure, a clear trend emerges: as the number of reference examples increases, all three correlation metrics improve significantly.</li>
+              <li>Notably, when evaluating new model responses in our benchmark, we provide all three reference examples, which could potentially lead to even higher correlations.</li>
+            </ul>
           </ul>
         </div>
       </div>
