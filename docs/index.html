@@ -201,7 +201,7 @@
                 <a href="https://maszhongming.github.io/llm-cross-capabilities/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-twitter"></i>
+                      <i class="fa-brands fa-x-twitter"></i>
                   </span>
                   <span>Twitter</span></a>
                   </a>
@@ -218,9 +218,8 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
         <div class="content has-text-justified">
-          Large Language Models (LLMs) inherently encode extensive knowledge within their parameters. Previous studies have demonstrated that this parametric knowledge can be <strong>detected</strong> (e.g., via cloze tests) or <strong>modified</strong> (e.g., through knowledge editing).
-          <br><br><strong>Research Question</strong>: Taking this further, can task-specific parametric knowledge be <strong>transferred</strong> across LLMs of different scales?
-          <br><br>Absolutely! <i>Our paper provides empirical evidence supporting the transferability of parametric knowledge.</i>
+          The development and evaluation of LLMs have primarily focused on individual capabilities. Typically, developers construct specialized datasets tailored to distinct abilities, and then train models by blending these data sources. However, this overlooks the intersection of multiple capabilities across different types of expertise that are often required for real-world tasks, which we term <strong>cross capabilities</strong>.
+          <br><br>We will systematically explore this concept of cross capabilities in LLMs step by step.
         </div>  
     </div>
   </div>
@@ -231,15 +230,16 @@
     <!-- Results. -->
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h2 class="title is-3">Different Paradigms of Knowledge Transfer</h2>
+        <h2 class="title is-3">What is Cross Capability?</h2>
         <p align="center">
         <img src="./static/images/paradigm.png" class="center">
         </p>
         <div class="content has-text-justified">
           <ul>
-            <li><strong>Offline Distillation:</strong>
+            <li><strong>Examples and Definition:</strong>
               <ul>
-              <li>Utilizing soft logits from the fine-tuned teacher model to guide the training of the student model.</li> 
+              <li>Consider a user prompt asking, <i>Which direction has the total rainfall in Tokyo, Japan been trending over the past 10 years? Explain it step by step.</i> Such a task requires the integration of tool use (web browsing) with analytical reasoning. Similarly, when a developer provides HTML and JavaScript for an API-driven application and asks, <i>Give me a basic understanding of what this web app does,</i> the model must combine long-context comprehension with coding expertise.</li>
+              <li>We define these scenarios as <strong>cross capabilities</strong>---the intersection of multiple distinct capabilities across different types of expertise necessary to address complex, real-world tasks.</li>
               </ul>
             </li>
             <li><strong>Online Distillation:</strong>
