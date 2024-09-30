@@ -308,7 +308,7 @@
         <img src="./static/images/crosseval.png" class="center" width="75%">
         </p>
         <div class="content has-text-justified">
-          To benchmark the cross capabilities of LLMs, we introduce the CrossEval benchmark, which includes:<br><br>
+          To benchmark the cross capabilities of LLMs, we introduce the CrossEval benchmark, which includes:
           <ul>
           <li><strong>Prompts</strong>: 1,400 expert-annotated prompts, with 100 prompts per capability</li>
           <li><strong>Category</strong>: each prompt categorized by level 1 and 2 based on the taxonomy</li>
@@ -379,7 +379,7 @@
         <img src="./static/images/result.png" class="center" width="90%">
         </p>
         <div class="content has-text-justified">
-          The full results of 17 LLMs from 5 model families are provided in the Table. Our experiments reveal several key findings:<br><br>
+          The full results of 17 LLMs from 5 model families are provided in the Table. Our experiments reveal several key findings:
           <ul>
           <li><strong>CrossEval effectively differentiates advanced models:</strong>
             <ul>
@@ -431,20 +431,19 @@
     <!-- Results. -->
     <div class="columns is-centered">
       <div class="column has-text-centered">
-        <h2 class="title is-3">How Individual-Capability Alterations Impact Cross-Capability Performance?</h2>
+        <h2 class="title is-3">Case Study on Individual-Capability Alterations</h2>
         <p align="center">
-        <img src="./static/images/principle.png" class="center" width="80%">
+        <img src="./static/images/principle.png" class="center" width="90%">
         </p>
         <div class="content has-text-justified">
-          Beyond evaluating the relationship between individual and cross capabilities of LLMs on CrossEval, we explore the crucial follow-up questions: when we adjust the performance of specific capabilities, how does this affect cross-capability performance?<br><br>
+          Beyond evaluating the relationship between individual and cross capabilities of LLMs on CrossEval, we explore the crucial follow-up questions: when we adjust the performance of specific capabilities, how does this affect cross-capability performance? To explore this in LLMs, we propose a prompting method designed to modulate specific capabilities of LLMs. Following this, we present case studies involving two LLMs in three cross-capability tasks to illustrate the effects of these alterations.
           <ul>
           <li><strong>Principle-based System Prompting</strong>:</li>
             <ul>
             <li>To reliably explore the impact of altering individual capabilities, we aim to enhance a specific capability without significantly affecting others.</li>
-            <li>Our solution is a principle-based method that iteratively refines the system prompt to enhance the specific capabilities of LLMs.</li>
+            <li>Our solution is a principle-based method that iteratively refines the system prompt to enhance the specific capabilities of LLMs. It builds on the CrossEval dataset to selectively boost individual capabilities.</li>
             </ul>
-          </ul>
-          <li><strong>Case study to investigate the impact of individual-capability alterations</strong>:</li>
+          <li><strong>Investigating the impact of individual-capability alterations</strong>:</li>
             <ul>
             <li>Principle-based system prompting is particularly effective in enhancing weaker capabilities.</li>
             <li>"Law of the Weakest Link" effect persists after individual-capability alterations.</li>
